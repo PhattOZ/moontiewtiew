@@ -1,9 +1,26 @@
+import React, { useEffect, useState } from "react"
+import axios from "axios"
+
 function App() {
+  // --------------------------- get message from server ---------------------------
+  const [msg, setMsg] = useState(null)
+
+  async function fetchData() {
+    const res = await axios.get("/api")
+    // console.log(res)
+    setMsg(res.data.message)
+  }
+
+  useEffect(() => fetchData(), [])
+
+  // --------------------------- end of get message from server ---------------------------
+
   return (
     <section className="App h-screen w-full flex justify-center items-center bg-green-500">
       <div className="w-full max-w-md bg-gray-800">
         <form action="" className=" bg-white shadow-md rounded px-8 py-8 pt-8">
           <div className="px-4 pb-4">
+            {msg} {/* message from server */}
             <label htmlFor="email" className="text-sm block font-bold  pb-2">
               EMAIL ADDRESS
             </label>
@@ -38,7 +55,7 @@ function App() {
         </form>
       </div>
     </section>
-  );
+  )
 }
 
-export default App;
+export default App
