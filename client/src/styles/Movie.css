@@ -1,0 +1,8 @@
+.movie-container {
+  width: 20%;
+}
+
+.movie-name {
+  margin: 15px auto 10px;
+  font-weight: bolder;
+}
