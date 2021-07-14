@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import Movie from "../components/Movie"
 
 const movies_id = [550, 557, 558, 559, 561, 562, 570, 572, 573, 547, 575, 700]

@@ -6,21 +6,22 @@ function Movie(props) {
 
   // --------------------------- get movie from server ---------------------------
 
-  const [movie, setMovie] = useState(null)
-
   async function fetchMovie() {
-    const res = await axios.get(`/api/allmovies/${id}`)
+    const res = await axios.get(`/api/movies/allmovies/${id}`)
     setMovie(res.data)
   }
+  const [movie, setMovie] = useState(null)
 
-  useEffect(() => fetchMovie(), [movie])
+  useEffect(() => fetchMovie(), [])
+
+  // --------------------------- end of get movie from server ---------------------------
 
   let movieElement = null
   if (movie) {
     movieElement = (
       <div className="relative">
         <a href={movie.url}>
-          <img src={movie.img} />
+          <img src={movie.img} alt="movie cover" />
         </a>
         <a
           className="text-gray-50 bg-gray-900 p-2 rounded-full absolute left-0 bottom-0"
